@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <data>
-        <variable
-            name="categorymodel"
-            type="com.softwarecity.resturant.dataSource.model.category.Categorylist"
-            />
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    </data>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:orientation="horizontal"
+
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layoutDirection="rtl"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/iv_image"
         android:layout_width="@dimen/_120sdp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="@dimen/_1sdp"
+        android:layout_marginStart="@dimen/_5sdp"
         android:paddingBottom="@dimen/_35sdp"
-        tools:ignore="MissingConstraints"
         />
 
 
@@ -34,12 +37,15 @@
         android:layout_marginEnd="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_5sdp"
         android:maxLines="1"
-        android:text="@{categorymodel.name}"
-        app:layout_constraintTop_toBottomOf="@+id/iv_image"
+        android:text="category_name"
         android:textAlignment="viewEnd"
         android:textColor="@android:color/black"
         android:textSize="@dimen/_12ssp"
-        android:layout_marginBottom="@dimen/_3sdp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/_3sdp"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
