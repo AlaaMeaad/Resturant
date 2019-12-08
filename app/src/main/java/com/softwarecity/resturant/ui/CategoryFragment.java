@@ -5,12 +5,14 @@ import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.softwarecity.resturant.R;
 import com.softwarecity.resturant.dataSource.model.category.Category;
@@ -20,6 +22,7 @@ import com.softwarecity.resturant.ui.adapter.CategoryAdapter;
 import com.softwarecity.resturant.ui.viewModel.ViewModelCategory;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,7 +46,7 @@ View view;
         viewModelCategory = ViewModelProviders.of(getActivity()).get(ViewModelCategory.class);
         fragmentCategoryBinding = DataBindingUtil.setContentView(getActivity() , R.layout.fragment_category);
         categoryRecyclerView ();
-
+      //  Toast.makeText(getActivity() , "yarb" , Toast.LENGTH_SHORT).show();
         return view;
     }
 
@@ -52,5 +55,11 @@ View view;
         fragmentCategoryBinding.rvCategory.setLayoutManager(new LinearLayoutManager(getContext()));
         categoryAdapter = new CategoryAdapter(getActivity());
         fragmentCategoryBinding.rvCategory.setAdapter(categoryAdapter);
+        viewModelCategory.listMutableLiveDataCategory.observe(this, new Observer<List<Category>>() {
+            @Override
+            public void onChanged(List<Category> categories) {
+                List<Categorylist> mylist = new ArrayList<>() ;
+            }
+        });
     }
 }

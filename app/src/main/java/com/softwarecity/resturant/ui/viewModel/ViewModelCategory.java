@@ -2,6 +2,7 @@ package com.softwarecity.resturant.ui.viewModel;
 
 import com.softwarecity.resturant.dataSource.ApiService;
 import com.softwarecity.resturant.dataSource.model.category.Category;
+import com.softwarecity.resturant.dataSource.model.category.Categorylist;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import retrofit2.Response;
 
 public class ViewModelCategory extends ViewModel {
 ApiService apiService;
-    MutableLiveData<List<Category>> listMutableLiveDataCategory = new MutableLiveData<>();
+   public MutableLiveData<List<Category>> listMutableLiveDataCategory = new MutableLiveData<>();
 
     public void getCategory(){
         apiService.getCategory().enqueue(new Callback<List<Category>>() {
