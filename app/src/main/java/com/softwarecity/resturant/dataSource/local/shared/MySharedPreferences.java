@@ -24,7 +24,7 @@ public class MySharedPreferences {
     public static void setSharedPreferences(Activity activity) {
         if (sharedPreferences == null) {
             sharedPreferences = activity.getSharedPreferences(
-                    BuildConfig.PREF_NAME, activity.MODE_PRIVATE);
+                    "PREF", activity.MODE_PRIVATE);
            editor = sharedPreferences.edit();
         }
     }

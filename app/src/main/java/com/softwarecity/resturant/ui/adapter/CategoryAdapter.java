@@ -7,10 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.softwarecity.resturant.R;
 import com.softwarecity.resturant.dataSource.model.category.Categorylist;
+import com.softwarecity.resturant.databinding.CategoryItemBinding;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -23,23 +26,23 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     private List<Categorylist> category = new ArrayList<>();
     private CategoryAdapterListener mCategoryAdapterListener;
 
-        public CategoryAdapter(Activity activity, Context context, List<Categorylist> notifications,CategoryAdapterListener mCategoryAdapterListener) {
+        public CategoryAdapter(Activity activity) {
             this.activity = activity;
             this.context = context;
             this.mCategoryAdapterListener = mCategoryAdapterListener;
-            this.category = notifications;
+            this.category = category;
         }
 
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(context).inflate(R.layout.category_item, parent, false);
-            return new ViewHolder(view);
+            CategoryItemBinding binding = DataBindingUtil.bind(parent);
+            return new ViewHolder(binding);
         }
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            setData(holder, position);
+            holder.bind(category.get(position));
         }
 
         private void setData(ViewHolder holder, int position) {
@@ -61,19 +64,20 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             TextView tvNotification_title;
             TextView notification_description;
             TextView tvDate;
-            private View view;
+            private CategoryItemBinding binding;
 
-            public ViewHolder(View itemview) {
-                super(itemview);
-                view = itemview;
-//                tvDate = view.findViewById(R.id.tv_date);
-//                tvNotification_title = view.findViewById(R.id.tv_notification_title);
-//                notification_description = view.findViewById(R.id.notification_description);
-                view.setOnClickListener(new View.OnClickListener() {
+            public ViewHolder(CategoryItemBinding binding) {
+                super(binding.getRoot());
+                this.binding = binding;
+
+            }
+
+            public void bind(Categorylist categorylist) {
+                binding.tvCategoryName.setText(categorylist.getName());
+                binding.getRoot().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        mNotificationAdapterListener.onClickItem(getAdapterPosition(),
-//                                notifications.get(getAdapterPosition()).getPropertyId());
+
                     }
                 });
             }

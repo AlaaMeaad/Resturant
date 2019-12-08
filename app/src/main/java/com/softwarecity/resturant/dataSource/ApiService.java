@@ -21,5 +21,5 @@ import retrofit2.http.Part;
 public interface ApiService {
 
     @GET("category")
-    Call<List<Category>> contactUs();
+    Call<List<Category>> getCategory();
 }

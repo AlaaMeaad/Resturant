@@ -25,7 +25,7 @@ class ApiClient {
 
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl(BuildConfig.BASE_URL)
+                    .baseUrl("http://softwarecity.net/restaurant/api")
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(client)
                     .build();

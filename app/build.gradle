@@ -65,5 +65,11 @@ dependencies {
 
 //recyclerview
     implementation 'com.android.support:recyclerview-v7:29.0.0'
+
+    def nav_version = "2.1.0"
+
+    // Java language implementation
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
 }
 apply plugin: 'com.google.gms.google-services'

@@ -6,23 +6,23 @@
     <data>
         <variable
             name="categorymodel"
-            type="com.softwarecity.resturant.dataSource.model.category.Categorylist"
-            />
+            type="com.softwarecity.resturant.dataSource.model.category.Categorylist" />
 
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/iv_image"
-        android:layout_width="@dimen/_120sdp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
         android:scaleType="fitXY"
-        android:paddingBottom="@dimen/_35sdp"
-        tools:ignore="MissingConstraints"
-        />
+        android:src="@color/colorPrimaryDark"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 
 
@@ -35,11 +35,13 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:maxLines="1"
         android:text="@{categorymodel.name}"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_image"
         android:textAlignment="viewEnd"
         android:textColor="@android:color/black"
         android:textSize="@dimen/_12ssp"
-        android:layout_marginBottom="@dimen/_3sdp"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginBottom="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
