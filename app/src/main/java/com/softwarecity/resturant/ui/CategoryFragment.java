@@ -31,10 +31,7 @@ public class CategoryFragment extends Fragment {
     private FragmentCategoryBinding fragmentCategoryBinding;
     ViewModelCategory viewModelCategory;
     CategoryAdapter categoryAdapter;
-
-
-
-View view;
+    View view;
     public CategoryFragment() {
         // Required empty public constructor
     }
@@ -65,10 +62,7 @@ View view;
                 List<Categorylist> mylist = new ArrayList<>() ;
 
 //                Toast.makeText(getContext() , "ddd" , Toast.LENGTH_SHORT).show();
-                for (Categorylist snap : categories){
-//                    mylist.add(snap.)
 
-                }
             }
         });
     }

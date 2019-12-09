@@ -36,21 +36,26 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            CategoryItemBinding binding = DataBindingUtil.bind(parent);
+//            CategoryItemBinding binding = DataBindingUtil.bind(parent);
+            CategoryItemBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()) ,
+                    R.layout.category_item , parent ,false);
             return new ViewHolder(binding);
         }
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.bind(category.get(position));
+//            holder.bind(category.get(position));
+            Categorylist categorylist = category.get(position);
+            holder.binding.setCategorymodel(categorylist);
         }
 
-        private void setData(ViewHolder holder, int position) {
-
-            holder.tvNotification_title.setText(category.get(position).getName());
-//            holder.notification_description.setText(category.get(position).getCategoryID());
-           // HelperMethod.onLoadImageFromUrl(holder.postAdapterIvPostImage, category.get(position).getCategoryImage(), activity);
-        }
+//        private void setData(ViewHolder holder, int position) {
+//
+//
+////            holder.tvNotification_title.setText(category.get(position).getName());
+////            holder.notification_description.setText(category.get(position).getCategoryID());
+//           // HelperMethod.onLoadImageFromUrl(holder.postAdapterIvPostImage, category.get(position).getCategoryImage(), activity);
+//        }
 
 
         @Override
@@ -61,9 +66,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
         public class ViewHolder extends RecyclerView.ViewHolder {
 
-            TextView tvNotification_title;
-            TextView notification_description;
-            TextView tvDate;
+
             private CategoryItemBinding binding;
 
             public ViewHolder(CategoryItemBinding binding) {
