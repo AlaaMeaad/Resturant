@@ -3,6 +3,7 @@ package com.softwarecity.resturant.dataSource;
 
 
 import com.softwarecity.resturant.dataSource.model.category.Category;
+import com.softwarecity.resturant.dataSource.model.category.Categorylist;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,5 +22,5 @@ import retrofit2.http.Part;
 public interface ApiService {
 
     @GET("category")
-    Call<List<Category>> getCategory();
+    Call<List<Categorylist>> getCategory();
 }

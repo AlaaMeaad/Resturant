@@ -1,5 +1,8 @@
 package com.softwarecity.resturant.ui.viewModel;
 
+import android.app.Activity;
+import android.widget.Toast;
+
 import com.softwarecity.resturant.dataSource.ApiService;
 import com.softwarecity.resturant.dataSource.model.category.Category;
 import com.softwarecity.resturant.dataSource.model.category.Categorylist;
@@ -14,17 +17,18 @@ import retrofit2.Response;
 
 public class ViewModelCategory extends ViewModel {
 ApiService apiService;
-   public MutableLiveData<List<Category>> listMutableLiveDataCategory = new MutableLiveData<>();
+   public MutableLiveData<List<Categorylist>> listMutableLiveDataCategory = new MutableLiveData<>();
 
     public void getCategory(){
-        apiService.getCategory().enqueue(new Callback<List<Category>>() {
+        apiService.getCategory().enqueue(new Callback<List<Categorylist>>() {
             @Override
-            public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
+            public void onResponse(Call<List<Categorylist>> call, Response<List<Categorylist>> response) {
                 listMutableLiveDataCategory.setValue(response.body());
+//                Toast.makeText(getCategory() , "hhhh",Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onFailure(Call<List<Category>> call, Throwable t) {
+            public void onFailure(Call<List<Categorylist>> call, Throwable t) {
 
             }
         });

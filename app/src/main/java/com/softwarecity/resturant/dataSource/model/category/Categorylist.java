@@ -12,7 +12,7 @@ public class Categorylist {
     private String categoryID;
     @SerializedName("Name")
     @Expose
-    private String name;
+    private String name ;
     @SerializedName("CategoryImage")
     @Expose
     private String categoryImage;
